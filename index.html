@@ -129,9 +129,12 @@ Recursive是一种基于递归思想的MySQL查询方式，可以实现对数据
         <h3 id="案例">
           <a href="#案例" class="heading-link"><i class="fas fa-link"></i></a>案例</h3>
       
-<p><img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/image.png"> <img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/04ecb3374db9d50e65baea1384bb6cbc.png"></p>
-<p><code>SELECT p.* FROM course_category p WHERE p.id = '1'</code>
+<p><img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/image.png"></p>
+<p><img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/04ecb3374db9d50e65baea1384bb6cbc.png"></p>
+<blockquote>
+<p>分析：<code>SELECT p.* FROM course_category p WHERE p.id = '1'</code>
 这个sql结果赋值给t1;然后通过这个初次查询结果的t1表继续去跟course_category联查,符合where条件的再赋值给t1;直至没有符合条件的;最后需要的数据都在t1表里了,只需要查询t1表即可;</p>
+</blockquote>
 
         <h1 id="参考">
           <a href="#参考" class="heading-link"><i class="fas fa-link"></i></a>参考</h1>
