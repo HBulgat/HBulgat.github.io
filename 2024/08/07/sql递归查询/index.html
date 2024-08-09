@@ -5,14 +5,14 @@
 <meta property="og:site_name" content="Bulgat的个人博客">
 <meta property="og:description" content="前言        之前在南大夏令营笔试遇到一题SQL递归查询的，当时空在那，现在补一下                     MySQL with Recursive        MySQL with Recursive是一种基于递归思想的MySQL查询方式，可以实现对数据的递归查询和处理，返回符合条件的数据。在MySQL 8.0版本中，该功">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/61f13906cb550c4b1ca419fbd59a3f5e.png">
-<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/642511f78aaf8bff51222cf6d7ec605e.png">
-<meta property="og:image" content="https://i-blog.csdnimg.cn/blog_migrate/04ecb3374db9d50e65baea1384bb6cbc.png">
+<meta property="og:image" content="http://example.com/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/1.png">
+<meta property="og:image" content="http://example.com/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/image.png">
+<meta property="og:image" content="http://example.com/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/04ecb3374db9d50e65baea1384bb6cbc.png">
 <meta property="article:published_time" content="2024-08-07T08:18:29.000Z">
-<meta property="article:modified_time" content="2024-08-09T07:57:11.781Z">
+<meta property="article:modified_time" content="2024-08-09T08:01:32.509Z">
 <meta property="article:author" content="Bulgat">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i-blog.csdnimg.cn/blog_migrate/61f13906cb550c4b1ca419fbd59a3f5e.png"><title>sql递归查询 | Bulgat的个人博客</title><link ref="canonical" href="http://example.com/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="http://example.com/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/1.png"><title>sql递归查询 | Bulgat的个人博客</title><link ref="canonical" href="http://example.com/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -49,26 +49,20 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></he
 Recursive是一种基于递归思想的MySQL查询方式，可以实现对数据的递归查询和处理，返回符合条件的数据。在MySQL
 8.0版本中，该功能被正式引入。</p>
 <blockquote>
-<p>WITH RECURSIVE 语句包含两部分：</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>递归部分: 定义了如何递归查询数据;</li>
-<li>终止条件部分: 定义了递归查询何时停止。</li>
-</ul>
+<p>WITH RECURSIVE 语句包含两部分： - 递归部分: 定义了如何递归查询数据; -
+终止条件部分: 定义了递归查询何时停止。</p>
 </blockquote>
 
         <h2 id="语法">
           <a href="#语法" class="heading-link"><i class="fas fa-link"></i></a>语法</h2>
       
 <figure class="highlight sql"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WITH</span> <span class="keyword">RECURSIVE</span> recursive_query_name (col1, col2, ..., coln) <span class="keyword">AS</span> (</span><br><span class="line">    <span class="comment">-- 递归部分</span></span><br><span class="line">    <span class="keyword">SELECT</span> </span><br><span class="line">			initial_query_result_col1, </span><br><span class="line">			initial_query_result_col2, </span><br><span class="line">			...,</span><br><span class="line">			initial_query_result_coln</span><br><span class="line">    <span class="keyword">FROM</span> initial_query</span><br><span class="line">    <span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">    <span class="keyword">SELECT</span> </span><br><span class="line">			recursive_query_result_col1,</span><br><span class="line">			recursive_query_result_col2, </span><br><span class="line">			..., </span><br><span class="line">			recursive_query_result_coln</span><br><span class="line">    <span class="keyword">FROM</span> recursive_query_name, recursive_query</span><br><span class="line">    <span class="keyword">WHERE</span> recursive_query_condition</span><br><span class="line">)</span><br><span class="line"><span class="comment">-- 终止条件部分</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> recursive_query_name ;</span><br></pre></td></tr></table></div></figure>
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/61f13906cb550c4b1ca419fbd59a3f5e.png"></p>
+<p><img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/1.png"></p>
 
         <h3 id="案例">
           <a href="#案例" class="heading-link"><i class="fas fa-link"></i></a>案例</h3>
       
-<p><img src="https://i-blog.csdnimg.cn/blog_migrate/642511f78aaf8bff51222cf6d7ec605e.png">
-<img src="https://i-blog.csdnimg.cn/blog_migrate/04ecb3374db9d50e65baea1384bb6cbc.png"></p>
+<p><img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/image.png"> <img src="/2024/08/07/sql%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2/04ecb3374db9d50e65baea1384bb6cbc.png"></p>
 <p><code>SELECT p.* FROM course_category p WHERE p.id = '1'</code>
 这个sql结果赋值给t1;然后通过这个初次查询结果的t1表继续去跟course_category联查,符合where条件的再赋值给t1;直至没有符合条件的;最后需要的数据都在t1表里了,只需要查询t1表即可;</p>
 
