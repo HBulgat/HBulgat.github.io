@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="位运算的奇巧淫技        判断奇偶数x&amp;1&#x3D;1为奇数，x&amp;1&#x3D;0为偶数  获取二进制位是1还是0左移后和1作&amp;运算  交换两个整数变量的值 123x&#x3D;x^y;y&#x3D;x^y;x&#x3D;x^y; 不用判断语句，求整数的绝对值                      异或性质                            找出唯一成">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="位运算的奇巧淫技         判断奇偶数 x&amp;1&#x3D;1为奇数，x&amp;1&#x3D;0为偶数 获取二进制位是1还是0 左移后和1作&amp;运算 交换两个整数变量的值 123x&#x3D;x^y;y&#x3D;x^y;x&#x3D;x^y; 不用判断语句，求整数的绝对值                      异或性质">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法刷题记录DAY3">
 <meta property="og:url" content="http://example.com/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/index.html">
 <meta property="og:site_name" content="Bulgat的个人博客">
-<meta property="og:description" content="位运算的奇巧淫技        判断奇偶数x&amp;1&#x3D;1为奇数，x&amp;1&#x3D;0为偶数  获取二进制位是1还是0左移后和1作&amp;运算  交换两个整数变量的值 123x&#x3D;x^y;y&#x3D;x^y;x&#x3D;x^y; 不用判断语句，求整数的绝对值                      异或性质                            找出唯一成">
+<meta property="og:description" content="位运算的奇巧淫技         判断奇偶数 x&amp;1&#x3D;1为奇数，x&amp;1&#x3D;0为偶数 获取二进制位是1还是0 左移后和1作&amp;运算 交换两个整数变量的值 123x&#x3D;x^y;y&#x3D;x^y;x&#x3D;x^y; 不用判断语句，求整数的绝对值                      异或性质">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723186263238.png">
 <meta property="og:image" content="http://example.com/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723186362438.png">
@@ -42,32 +42,35 @@ var CONFIG = {
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">算法刷题记录DAY3</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-08-08</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-08-11</span></span></div></header><div class="post-body">
         <h1 id="位运算的奇巧淫技">
-          <a href="#位运算的奇巧淫技" class="heading-link"><i class="fas fa-link"></i></a><a href="#位运算的奇巧淫技" class="headerlink" title="位运算的奇巧淫技"></a>位运算的奇巧淫技</h1>
-      <ul>
-<li><p>判断奇偶数<br><code>x&amp;1=1</code>为奇数，<code>x&amp;1=0</code>为偶数</p>
-</li>
-<li><p>获取二进制位是1还是0<br>左移后和1作&amp;运算</p>
-</li>
-<li><p>交换两个整数变量的值</p>
-<figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=x^y;</span><br><span class="line">y=x^y;</span><br><span class="line">x=x^y;</span><br></pre></td></tr></table></div></figure></li>
-<li>不用判断语句，求整数的绝对值</li>
+          <a href="#位运算的奇巧淫技" class="heading-link"><i class="fas fa-link"></i></a>位运算的奇巧淫技</h1>
+      
+<ul>
+<li><p>判断奇偶数
+<code>x&amp;1=1</code>为奇数，<code>x&amp;1=0</code>为偶数</p></li>
+<li><p>获取二进制位是1还是0 左移后和1作&amp;运算</p></li>
+<li><p>交换两个整数变量的值 <figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=x^y;</span><br><span class="line">y=x^y;</span><br><span class="line">x=x^y;</span><br></pre></td></tr></table></div></figure></p></li>
+<li><p>不用判断语句，求整数的绝对值</p></li>
 </ul>
 
         <h2 id="异或性质">
-          <a href="#异或性质" class="heading-link"><i class="fas fa-link"></i></a><a href="#异或性质" class="headerlink" title="异或性质"></a>异或性质</h2>
-      <p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723186263238.png" alt></p>
+          <a href="#异或性质" class="heading-link"><i class="fas fa-link"></i></a>异或性质</h2>
+      
+<p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723186263238.png"></p>
 
         <h1 id="找出唯一成对的数">
-          <a href="#找出唯一成对的数" class="heading-link"><i class="fas fa-link"></i></a><a href="#找出唯一成对的数" class="headerlink" title="找出唯一成对的数"></a>找出唯一成对的数</h1>
-      <p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723186362438.png" alt></p>
+          <a href="#找出唯一成对的数" class="heading-link"><i class="fas fa-link"></i></a>找出唯一成对的数</h1>
+      
+<p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723186362438.png"></p>
 <blockquote>
-<p>思路：可以利用set，也可以单独开一个长度1000的数组，但是都不符合题意；这个时候可以利用<code>^</code>运算：<br><figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A^A=0;</span><br><span class="line">A^A^B^C^C=B;</span><br><span class="line">A^A^A=A;</span><br></pre></td></tr></table></div></figure><br>即奇数个一样的数异或等于它本身。</p>
+<p>思路：可以利用set，也可以单独开一个长度1000的数组，但是都不符合题意；这个时候可以利用<code>^</code>运算：
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A^A=0;</span><br><span class="line">A^A^B^C^C=B;</span><br><span class="line">A^A^A=A;</span><br></pre></td></tr></table></div></figure> 即奇数个一样的数异或等于它本身。</p>
 </blockquote>
 <figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">slove</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n=<span class="number">1000</span>;</span><br><span class="line">    <span class="type">int</span> number=<span class="number">0</span>;</span><br><span class="line">    number=number^nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        number=number^i;</span><br><span class="line">        number=number^nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
         <h1 id="二进制中1的个数">
-          <a href="#二进制中1的个数" class="heading-link"><i class="fas fa-link"></i></a><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h1>
-      <p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723187280829.png" alt></p>
+          <a href="#二进制中1的个数" class="heading-link"><i class="fas fa-link"></i></a>二进制中1的个数</h1>
+      
+<p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723187280829.png"></p>
 <blockquote>
 <p>思路1：获取到该数中二进制的每一位，计算为1的个数</p>
 </blockquote>
@@ -78,31 +81,36 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></he
 <figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        n=n&amp;(n<span class="number">-1</span>);</span><br><span class="line">        ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
         <h1 id="是不是2的整数次方">
-          <a href="#是不是2的整数次方" class="heading-link"><i class="fas fa-link"></i></a><a href="#是不是2的整数次方" class="headerlink" title="是不是2的整数次方"></a>是不是2的整数次方</h1>
-      <p>用1条语句判断一个整数是不是2的整数次方</p>
+          <a href="#是不是2的整数次方" class="heading-link"><i class="fas fa-link"></i></a>是不是2的整数次方</h1>
+      
+<p>用1条语句判断一个整数是不是2的整数次方</p>
 <blockquote>
 <p>思路：x&amp;(x-1)之后可以将x最低位的1变成0，如果x是2的整数次方，则x二进制中只有一个1，与x-1作&amp;运算之后将变为0；</p>
 </blockquote>
 <figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">slove</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(x<span class="number">-1</span>) ==<span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
         <h1 id="将整数的奇偶位互换">
-          <a href="#将整数的奇偶位互换" class="heading-link"><i class="fas fa-link"></i></a><a href="#将整数的奇偶位互换" class="headerlink" title="将整数的奇偶位互换"></a>将整数的奇偶位互换</h1>
-      <blockquote>
-<p>思路：<img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188154647.png" alt><br><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188213237.png" alt><br>然后将c左移一位、d右移一位，拼接在一起即可</p>
+          <a href="#将整数的奇偶位互换" class="heading-link"><i class="fas fa-link"></i></a>将整数的奇偶位互换</h1>
+      
+<blockquote>
+<p>思路：<img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188154647.png"> <img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188213237.png">
+然后将c左移一位、d右移一位，拼接在一起即可</p>
 </blockquote>
 <figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">slove</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">0x55555555</span>;</span><br><span class="line">    <span class="type">int</span> b=<span class="number">0xaaaaaaaa</span>;</span><br><span class="line">    <span class="type">int</span> c=a&amp;n;</span><br><span class="line">    <span class="type">int</span> d=b&amp;n;</span><br><span class="line">    <span class="keyword">return</span> (c&lt;&lt;<span class="number">1</span>)|(d&gt;&gt;<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="0-1间浮点实数的二进制表示">
-          <a href="#0-1间浮点实数的二进制表示" class="heading-link"><i class="fas fa-link"></i></a><a href="#0-1间浮点实数的二进制表示" class="headerlink" title="0~1间浮点实数的二进制表示"></a>0~1间浮点实数的二进制表示</h1>
-      <p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188474391.png" alt></p>
+        <h1 id="间浮点实数的二进制表示">
+          <a href="#间浮点实数的二进制表示" class="heading-link"><i class="fas fa-link"></i></a>0~1间浮点实数的二进制表示</h1>
+      
+<p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188474391.png"></p>
 <blockquote>
 <p>思路：依次小数*2取整数位即可。</p>
 </blockquote>
 <figure class="highlight cpp"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">slove</span><span class="params">(<span class="type">double</span> a)</span></span>&#123;</span><br><span class="line">    string ans=<span class="string">&quot;0.&quot;</span>;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a&gt;<span class="number">0</span>&amp;&amp;count&lt;<span class="number">32</span>)&#123;</span><br><span class="line">        a=a*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a&gt;=<span class="number">1</span>) &#123;</span><br><span class="line">            ans+=<span class="string">&quot;1&quot;</span>;</span><br><span class="line">            a-=<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            ans+=<span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;<span class="number">0</span>) cout&lt;&lt;<span class="string">&quot;ERROR&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
-        <h1 id="出现K次与出现1次">
-          <a href="#出现K次与出现1次" class="heading-link"><i class="fas fa-link"></i></a><a href="#出现K次与出现1次" class="headerlink" title="出现K次与出现1次"></a>出现K次与出现1次</h1>
-      <p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188840312.png" alt></p>
+        <h1 id="出现k次与出现1次">
+          <a href="#出现k次与出现1次" class="heading-link"><i class="fas fa-link"></i></a>出现K次与出现1次</h1>
+      
+<p><img src="/2024/08/08/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY3/1723188840312.png"></p>
 <blockquote>
 <p>思路：k个相同的数作k进制下的不进位加和结果为0，所以只需要这些数全部作k进制下的不进位加和，将结果还原即为答案。</p>
 </blockquote>
@@ -113,8 +121,8 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></he
           找出唯一成对的数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">
           二进制中1的个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%AF%E4%B8%8D%E6%98%AF2%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="toc-number">4.</span> <span class="toc-text">
           是不是2的整数次方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%86%E6%95%B4%E6%95%B0%E7%9A%84%E5%A5%87%E5%81%B6%E4%BD%8D%E4%BA%92%E6%8D%A2"><span class="toc-number">5.</span> <span class="toc-text">
-          将整数的奇偶位互换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0-1%E9%97%B4%E6%B5%AE%E7%82%B9%E5%AE%9E%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA"><span class="toc-number">6.</span> <span class="toc-text">
-          0~1间浮点实数的二进制表示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0K%E6%AC%A1%E4%B8%8E%E5%87%BA%E7%8E%B01%E6%AC%A1"><span class="toc-number">7.</span> <span class="toc-text">
+          将整数的奇偶位互换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%B4%E6%B5%AE%E7%82%B9%E5%AE%9E%E6%95%B0%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA"><span class="toc-number">6.</span> <span class="toc-text">
+          0~1间浮点实数的二进制表示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0k%E6%AC%A1%E4%B8%8E%E5%87%BA%E7%8E%B01%E6%AC%A1"><span class="toc-number">7.</span> <span class="toc-text">
           出现K次与出现1次</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">15</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.json';
