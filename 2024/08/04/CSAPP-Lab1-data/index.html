@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="实验准备         了解! ~ &amp; ^ | + &lt;&lt; &gt;&gt; 运算符 &amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）和&lt;&lt;（左移）、&gt;&gt;（右移）都是直接在整数的补码表示上进行运算。   ! 运算符  若对布尔值进行运算非false则true，非true则false">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="实验准备        了解! ~ &amp; ^ | + &lt;&lt; &gt;&gt; 运算符&amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）和&lt;&lt;（左移）、&gt;&gt;（右移）都是直接在整数的补码表示上进行运算。   ! 运算符 若对布尔值进行运算非false则true，非true则false。 若对整数进行运算，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSAPP-Lab1-data">
 <meta property="og:url" content="http://example.com/2024/08/04/CSAPP-Lab1-data/index.html">
 <meta property="og:site_name" content="Bulgat的个人博客">
-<meta property="og:description" content="实验准备         了解! ~ &amp; ^ | + &lt;&lt; &gt;&gt; 运算符 &amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）和&lt;&lt;（左移）、&gt;&gt;（右移）都是直接在整数的补码表示上进行运算。   ! 运算符  若对布尔值进行运算非false则true，非true则false">
+<meta property="og:description" content="实验准备        了解! ~ &amp; ^ | + &lt;&lt; &gt;&gt; 运算符&amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）和&lt;&lt;（左移）、&gt;&gt;（右移）都是直接在整数的补码表示上进行运算。   ! 运算符 若对布尔值进行运算非false则true，非true则false。 若对整数进行运算，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-03T17:08:19.000Z">
 <meta property="article:modified_time" content="2024-08-04T16:30:38.481Z">
@@ -34,85 +34,65 @@ var CONFIG = {
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">CSAPP-Lab1-data</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-08-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-08-05</span></span></div></header><div class="post-body">
         <h1 id="实验准备">
-          <a href="#实验准备" class="heading-link"><i class="fas fa-link"></i></a>实验准备</h1>
-      
-<blockquote>
-<p>了解! ~ &amp; ^ | + &lt;&lt; &gt;&gt; 运算符
-<strong>&amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）和&lt;&lt;（左移）、&gt;&gt;（右移）都是直接在整数的补码表示上进行运算。</strong></p>
+          <a href="#实验准备" class="heading-link"><i class="fas fa-link"></i></a><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h1>
+      <blockquote>
+<p>了解! ~ &amp; ^ | + &lt;&lt; &gt;&gt; 运算符<br><strong>&amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）和&lt;&lt;（左移）、&gt;&gt;（右移）都是直接在整数的补码表示上进行运算。</strong></p>
 </blockquote>
-<ol type="1">
-<li>! 运算符
-<ul>
+<ol>
+<li>! 运算符<ul>
 <li>若对布尔值进行运算非false则true，非true则false。</li>
-<li>若对整数进行运算，C语言中的整数可以直接在逻辑表达式中隐式地转换为布尔值，其中非零整数转换为
-true，零整数转换为 false，计算规则同上。</li>
-</ul></li>
-<li>~ 运算符
-对操作数的每一位进行取反。在补码表示中，按位取反然后加1等价于取一个数的二进制补码。但是，~
-运算符本身不涉及补码转换，它只是简单地翻转每一位。</li>
-<li>&amp; 运算符
-对两个操作数的对应位进行逻辑与操作。由于操作数已经是补码形式，直接进行位运算。</li>
-<li>^ 运算符 对两个操作数的对应位进行逻辑异或操作。与 &amp;
-类似，直接在补码形式上进行。</li>
-<li><div class="line-block">运算符
-对两个操作数的对应位进行逻辑或操作，同样直接在补码形式上进行。</div></li>
-<li>+ 运算符
-加法运算符在补码表示上直接进行。如果操作数是整数，它们已经是补码形式，加法运算会考虑溢出。</li>
-<li>&lt;&lt; 、&gt;&gt;运算符
-<ul>
+<li>若对整数进行运算，C语言中的整数可以直接在逻辑表达式中隐式地转换为布尔值，其中非零整数转换为 true，零整数转换为 false，计算规则同上。</li>
+</ul>
+</li>
+<li>~ 运算符<br> 对操作数的每一位进行取反。在补码表示中，按位取反然后加1等价于取一个数的二进制补码。但是，~ 运算符本身不涉及补码转换，它只是简单地翻转每一位。</li>
+<li>&amp; 运算符<br> 对两个操作数的对应位进行逻辑与操作。由于操作数已经是补码形式，直接进行位运算。</li>
+<li>^ 运算符<br> 对两个操作数的对应位进行逻辑异或操作。与 &amp; 类似，直接在补码形式上进行。</li>
+<li>| 运算符<br> 对两个操作数的对应位进行逻辑或操作，同样直接在补码形式上进行。</li>
+<li>+ 运算符<br> 加法运算符在补码表示上直接进行。如果操作数是整数，它们已经是补码形式，加法运算会考虑溢出。</li>
+<li>&lt;&lt; 、&gt;&gt;运算符<ul>
 <li>左移运算符将操作数的所有位向左移动指定的位数，空出的位填充为0。</li>
-<li>右移运算符将操作数的所有位向右移动指定的位数。
-<ul>
+<li>右移运算符将操作数的所有位向右移动指定的位数。<ul>
 <li>逻辑右移用0填充空出的位；</li>
 <li>算术右移用符号位填充空出的位。</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 
-        <h1 id="bitxor">
-          <a href="#bitxor" class="heading-link"><i class="fas fa-link"></i></a>1-bitXor</h1>
-      
-<blockquote>
-<p>要求： bitXor - x^y using only ~ and &amp; Example: bitXor(4, 5) = 1
-Legal ops: ~ &amp; Max ops: 14 Rating: 1</p>
+        <h1 id="1-bitXor">
+          <a href="#1-bitXor" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-bitXor" class="headerlink" title="1-bitXor"></a>1-bitXor</h1>
+      <blockquote>
+<p>要求：<br> bitXor - x^y using only ~ and &amp;<br> Example: bitXor(4, 5) = 1<br> Legal ops: ~ &amp;<br> Max ops: 14<br> Rating: 1</p>
 </blockquote>
-<p>代码 <figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bitXor</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="type">int</span> ans=~((~((~x)&amp;y))&amp;(~(x&amp;(~y))));</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></p>
+<p> 代码<br><figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">bitXor</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="type">int</span> ans=~((~((~x)&amp;y))&amp;(~(x&amp;(~y))));</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></p>
 
-        <h1 id="tmin">
-          <a href="#tmin" class="heading-link"><i class="fas fa-link"></i></a>1-tmin</h1>
-      
-<blockquote>
-<p>要求： tmin - return minimum two's complement integer Legal ops: ! ~
-&amp; ^ | + &lt;&lt; &gt;&gt; Max ops: 4 Rating: 1</p>
+        <h1 id="1-tmin">
+          <a href="#1-tmin" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-tmin" class="headerlink" title="1-tmin"></a>1-tmin</h1>
+      <blockquote>
+<p>要求：<br>tmin - return minimum two’s complement integer<br>Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>Max ops: 4<br>Rating: 1</p>
 </blockquote>
-<p>代码： <figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">tmin</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">  <span class="type">int</span> ans=<span class="number">1</span>&lt;&lt;<span class="number">31</span>;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></p>
+<p>代码：<br><figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">tmin</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">  <span class="type">int</span> ans=<span class="number">1</span>&lt;&lt;<span class="number">31</span>;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></p>
 
-        <h1 id="istmax">
-          <a href="#istmax" class="heading-link"><i class="fas fa-link"></i></a>2-isTmax</h1>
-      
-<blockquote>
-<p>要求： isTmax - returns 1 if x is the maximum, two's complement
-number, and 0 otherwise Legal ops: ! ~ &amp; ^ | + Max ops: 10</p>
+        <h1 id="2-isTmax">
+          <a href="#2-isTmax" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-isTmax" class="headerlink" title="2-isTmax"></a>2-isTmax</h1>
+      <blockquote>
+<p>要求：<br>  isTmax - returns 1 if x is the maximum, two’s complement number,<br>  and 0 otherwise<br>  Legal ops: ! ~ &amp; ^ | +<br>  Max ops: 10</p>
 </blockquote>
-<p>代码： <figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> plus1=x+<span class="number">1</span>;</span><br><span class="line">  plus1=(plus1^x);</span><br><span class="line">  <span class="type">int</span> tmp=((plus1&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>);</span><br><span class="line">  <span class="type">int</span> ans=tmp&amp;(!(x&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></p>
+<p> 代码：<br><figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> plus1=x+<span class="number">1</span>;</span><br><span class="line">  plus1=(plus1^x);</span><br><span class="line">  <span class="type">int</span> tmp=((plus1&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>);</span><br><span class="line">  <span class="type">int</span> ans=tmp&amp;(!(x&gt;&gt;<span class="number">31</span>)&amp;<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure></p>
 
-        <h1 id="alloddbits">
-          <a href="#alloddbits" class="heading-link"><i class="fas fa-link"></i></a>2-allOddBits</h1>
-      
-<blockquote>
-<p>要求： allOddBits - return 1 if all odd-numbered bits in word set to
-1 where bits are numbered from 0 (least significant) to 31 (most
-significant) Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA)
-= 1 Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt; Max ops: 12 Rating:
-2</p>
+        <h1 id="2-allOddBits">
+          <a href="#2-allOddBits" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-allOddBits" class="headerlink" title="2-allOddBits"></a>2-allOddBits</h1>
+      <blockquote>
+<p>要求：<br>allOddBits - return 1 if all odd-numbered bits in word set to 1<br>  where bits are numbered from 0 (least significant) to 31 (most significant)<br>  Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1<br>  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;<br>  Max ops: 12<br>  Rating: 2</p>
 </blockquote>
 <figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">allOddBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="type">int</span> t1=(x&amp;<span class="number">0xAA</span>)^<span class="number">0xAA</span>;</span><br><span class="line">  <span class="type">int</span> t2=((x&gt;&gt;<span class="number">8</span>)&amp;<span class="number">0xAA</span>)^<span class="number">0xAA</span>;</span><br><span class="line">  <span class="type">int</span> t3=((x&gt;&gt;<span class="number">16</span>)&amp;<span class="number">0xAA</span>)^<span class="number">0xAA</span>;</span><br><span class="line">  <span class="type">int</span> t4=((x&gt;&gt;<span class="number">24</span>)&amp;<span class="number">0xAA</span>)^<span class="number">0xAA</span>;</span><br><span class="line">  <span class="type">int</span> t=!(t1+t2+t3+t4);</span><br><span class="line">  <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com">Bulgat</a></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2024/08/04/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY2/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">算法刷题记录DAY2</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2024/08/04/CSAPP-Lab0-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><span class="paginator-prev__text">CSAPP-Lab0-环境搭建</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">
-          实验准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bitxor"><span class="toc-number">2.</span> <span class="toc-text">
-          1-bitXor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tmin"><span class="toc-number">3.</span> <span class="toc-text">
-          1-tmin</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#istmax"><span class="toc-number">4.</span> <span class="toc-text">
-          2-isTmax</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#alloddbits"><span class="toc-number">5.</span> <span class="toc-text">
-          2-allOddBits</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
+          实验准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-bitXor"><span class="toc-number">2.</span> <span class="toc-text">
+          1-bitXor</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-tmin"><span class="toc-number">3.</span> <span class="toc-text">
+          1-tmin</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-isTmax"><span class="toc-number">4.</span> <span class="toc-text">
+          2-isTmax</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-allOddBits"><span class="toc-number">5.</span> <span class="toc-text">
+          2-allOddBits</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">15</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.json';
 
