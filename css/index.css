@@ -628,7 +628,7 @@ body::after {
   position: fixed;
   height: 100vh;
   z-index: -2;
-  background: url("/images/pcbg1.jpg") no-repeat center/cover;
+  background: url("/images/background_.png") no-repeat center/cover;
 }
 .container {
   white-space: normal;
