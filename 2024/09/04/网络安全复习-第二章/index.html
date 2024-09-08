@@ -1,12 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta property="og:type" content="article">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="密码学研究的主要目标         机密性 数据完整性 认证(真实性) 不可抵赖(可审计性)                      对称加密        发送方和接收方使用相同的密钥                      密码编码学         如何描述 1. 加密操作的方法 替代&#x2F;转置&#x2F;乘积 2. 使用的密钥数 单密">
+<meta property="og:type" content="article">
 <meta property="og:title" content="网络安全复习-第二章">
 <meta property="og:url" content="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Bulgat的个人博客">
+<meta property="og:description" content="密码学研究的主要目标         机密性 数据完整性 认证(真实性) 不可抵赖(可审计性)                      对称加密        发送方和接收方使用相同的密钥                      密码编码学         如何描述 1. 加密操作的方法 替代&#x2F;转置&#x2F;乘积 2. 使用的密钥数 单密">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/1.png">
+<meta property="og:image" content="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/1725782909198.png">
+<meta property="og:image" content="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.png">
 <meta property="article:published_time" content="2024-09-04T12:23:37.000Z">
-<meta property="article:modified_time" content="2024-09-04T12:24:11.611Z">
+<meta property="article:modified_time" content="2024-09-08T08:15:46.343Z">
 <meta property="article:author" content="Bulgat">
-<meta name="twitter:card" content="summary"><title>网络安全复习-第二章 | Bulgat的个人博客</title><link ref="canonical" href="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/1.png"><title>网络安全复习-第二章 | Bulgat的个人博客</title><link ref="canonical" href="http://example.com/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -30,8 +36,133 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">网络安全复习-第二章</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-09-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-09-04</span></span></div></header><div class="post-body">
-</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com">Bulgat</a></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2024/09/04/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY7/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">算法刷题记录DAY7</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2024/09/03/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%B8%80%E7%AB%A0/"><span class="paginator-prev__text">网络安全复习-第一章</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">17</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">网络安全复习-第二章</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-09-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-09-08</span></span></div></header><div class="post-body">
+        <h1 id="密码学研究的主要目标">
+          <a href="#密码学研究的主要目标" class="heading-link"><i class="fas fa-link"></i></a>密码学研究的主要目标</h1>
+      
+<ul>
+<li>机密性</li>
+<li>数据完整性</li>
+<li>认证(真实性)</li>
+<li>不可抵赖(可审计性)</li>
+</ul>
+
+        <h1 id="对称加密">
+          <a href="#对称加密" class="heading-link"><i class="fas fa-link"></i></a>对称加密</h1>
+      
+<p>发送方和接收方使用相同的密钥 <img src="/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/1.png"></p>
+
+        <h1 id="密码编码学">
+          <a href="#密码编码学" class="heading-link"><i class="fas fa-link"></i></a>密码编码学</h1>
+      
+<blockquote>
+<p>如何描述 1. 加密操作的方法 替代/转置/乘积 2. 使用的密钥数
+单密钥或私钥/双密钥或公钥 3. 明文的处理方式 块加密/流加密</p>
+</blockquote>
+
+        <h1 id="对称加密方法">
+          <a href="#对称加密方法" class="heading-link"><i class="fas fa-link"></i></a>对称加密方法</h1>
+      
+
+        <h2 id="古典替代密码">
+          <a href="#古典替代密码" class="heading-link"><i class="fas fa-link"></i></a>古典替代密码</h2>
+      
+
+        <h3 id="凯撒码caesar">
+          <a href="#凯撒码caesar" class="heading-link"><i class="fas fa-link"></i></a>凯撒码Caesar</h3>
+      
+<p>将每个字母替换为其后的第三个字母。 凯撒码可以表示为 &gt; c = E§ = (p
++ k) mod (26) &gt; p = D© = (c – k) mod (26)</p>
+
+        <h4 id="特点分析">
+          <a href="#特点分析" class="heading-link"><i class="fas fa-link"></i></a>特点分析</h4>
+      
+<p>只有26个可能的密码，可以很容易的依次验证——暴力破解
+对于已知密文，只需依次移动字母，当明文产生时需要能够识别</p>
+
+        <h3 id="单表代替密码">
+          <a href="#单表代替密码" class="heading-link"><i class="fas fa-link"></i></a>单表代替密码</h3>
+      
+<p>每个原文字符都可以被映射为一个任意的密文字符 密码长度为26个字母 ####
+单一字母替代码不会改变字母的出现的频率 &gt;
+该特点由阿拉伯科学家于公元9世纪发现 &gt; 计算字母出现频率 &gt;
+将计算值于已知值进行对比</p>
+
+        <h3 id="playfair-密码">
+          <a href="#playfair-密码" class="heading-link"><i class="fas fa-link"></i></a>Playfair 密码</h3>
+      
+<p>Playfair矩阵:<br>
+举例：密钥词是monarchy <img src="/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/1725782909198.png"> 1.
+如果该字母对的两个字母是相同的，那么在它们之间加一个填充字母，比如x。例如balloon先把它变成ba
+Ix lo on这样四个字母对 2.
+落在矩阵同一行的明文字母对中的字母由其右边的字母来代替，每行中最右边的一个字母就用该列中最左边的第一个字母来代替，比如ar变成RM
+3.
+落在矩阵同一列的明文字母对中的字母由其下面的字母来代替，每行中最下面的一个字母就用该列中最上面的第一个字母来代替，比如mu变成CM。
+4.
+其他的每组明文字母对中的字母按如下方式代替，该字母所在行为密文所在行，另一字母所在列为密文所在列。比如hs变成BP,ea变成IM(或JM)。(对角变对角)</p>
+
+        <h4 id="特点">
+          <a href="#特点" class="heading-link"><i class="fas fa-link"></i></a>特点</h4>
+      
+<blockquote>
+<p>比单一字母替换安全性好 频率表项增加到了26x26=676
+曾被广泛应用多年（如第一次世界大战） 提供几百个字母下可破解
+仍能够保留部分明文结构特征</p>
+</blockquote>
+
+        <h3 id="多字母密码">
+          <a href="#多字母密码" class="heading-link"><i class="fas fa-link"></i></a>多字母密码</h3>
+      
+<p>性质：使用一系列相关的单字母替代规律<br>
+一个密钥决定对一个给定的变换选择那种特定的规则<br>
+<img src="/2024/09/04/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0/2.png"></p>
+
+        <h3 id="一次一密one-time-pad">
+          <a href="#一次一密one-time-pad" class="heading-link"><i class="fas fa-link"></i></a>一次一密One-Time Pad</h3>
+      
+<p>采用与明文一样长的随机串为关键词<br>
+具备很强的安全性，统计学特征被隐藏<br>
+一次一密<br>
+密钥的生成与共享是存在的难题<br>
+没多大用——难以把密钥传过去</p>
+
+        <h2 id="置换技术">
+          <a href="#置换技术" class="heading-link"><i class="fas fa-link"></i></a>置换技术</h2>
+      
+<p>该方法通过将字符重新排列隐藏信息<br>
+并不改变使用的字符<br>
+该方案可以通过原文，密文中字符出现的频率相同进行识别</p>
+
+        <h3 id="栅栏技术">
+          <a href="#栅栏技术" class="heading-link"><i class="fas fa-link"></i></a>栅栏技术</h3>
+      
+<p>按照对角线顺序写出明文，然后按照行的顺序读取作为密文，例如：用深度为2的栅栏技术加密信息“meet
+me after the toga party”，可写作: &gt; m e m a t r h t g p r y &gt; e t
+e f e t e o a a t<br>
+密文为：MEMATRHTGPRYETEFETEOAAT</p>
+
+        <h3 id="行置换技术">
+          <a href="#行置换技术" class="heading-link"><i class="fas fa-link"></i></a>行置换技术</h3>
+      
+<p>一个更复杂的方案是：<br>
+将消息按照特定的列数写成矩阵形式<br>
+按照密钥值依次读出按照行排列</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com">Bulgat</a></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2024/09/04/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY7/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">算法刷题记录DAY7</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2024/09/03/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%8D%E4%B9%A0-%E7%AC%AC%E4%B8%80%E7%AB%A0/"><span class="paginator-prev__text">网络安全复习-第一章</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6%E7%A0%94%E7%A9%B6%E7%9A%84%E4%B8%BB%E8%A6%81%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">
+          密码学研究的主要目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">2.</span> <span class="toc-text">
+          对称加密</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E7%BC%96%E7%A0%81%E5%AD%A6"><span class="toc-number">3.</span> <span class="toc-text">
+          密码编码学</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">
+          对称加密方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E6%9B%BF%E4%BB%A3%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">
+          古典替代密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%AF%E6%92%92%E7%A0%81caesar"><span class="toc-number">4.1.1.</span> <span class="toc-text">
+          凯撒码Caesar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">
+          特点分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%A1%A8%E4%BB%A3%E6%9B%BF%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.2.</span> <span class="toc-text">
+          单表代替密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#playfair-%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.3.</span> <span class="toc-text">
+          Playfair 密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">
+          特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%AD%97%E6%AF%8D%E5%AF%86%E7%A0%81"><span class="toc-number">4.1.4.</span> <span class="toc-text">
+          多字母密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E4%B8%80%E5%AF%86one-time-pad"><span class="toc-number">4.1.5.</span> <span class="toc-text">
+          一次一密One-Time Pad</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%AE%E6%8D%A2%E6%8A%80%E6%9C%AF"><span class="toc-number">4.2.</span> <span class="toc-text">
+          置换技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%85%E6%A0%8F%E6%8A%80%E6%9C%AF"><span class="toc-number">4.2.1.</span> <span class="toc-text">
+          栅栏技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E7%BD%AE%E6%8D%A2%E6%8A%80%E6%9C%AF"><span class="toc-number">4.2.2.</span> <span class="toc-text">
+          行置换技术</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">17</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.json';
 
