@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="解数独         编写一个程序，通过填充空格来解决数独问题。   数独的解法需 遵循如下规则：    数字 1-9 在每一行只能出现一次。   数字 1-9 在每一列只能出现一次。   数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）    数独部分空格内已填入了数字，空白格用 &#39;.">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="解数独       编写一个程序，通过填充空格来解决数独问题。  数独的解法需 遵循如下规则：     数字&nbsp;1-9&nbsp;在每一行只能出现一次。   数字&nbsp;1-9&nbsp;在每一列只能出现一次。   数字&nbsp;1-9&nbsp;在每一个以粗实线分隔的&nbsp;3x3&nbsp;宫内只能出现一次。（请参考示例图）    数独">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法刷题记录DAY9">
 <meta property="og:url" content="http://example.com/2024/09/06/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95DAY9/index.html">
 <meta property="og:site_name" content="Bulgat的个人博客">
-<meta property="og:description" content="解数独         编写一个程序，通过填充空格来解决数独问题。   数独的解法需 遵循如下规则：    数字 1-9 在每一行只能出现一次。   数字 1-9 在每一列只能出现一次。   数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）    数独部分空格内已填入了数字，空白格用 &#39;.">
+<meta property="og:description" content="解数独       编写一个程序，通过填充空格来解决数独问题。  数独的解法需 遵循如下规则：     数字&nbsp;1-9&nbsp;在每一行只能出现一次。   数字&nbsp;1-9&nbsp;在每一列只能出现一次。   数字&nbsp;1-9&nbsp;在每一个以粗实线分隔的&nbsp;3x3&nbsp;宫内只能出现一次。（请参考示例图）    数独">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714svg.png">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714_solutionsvg.png">
@@ -37,95 +37,49 @@ var CONFIG = {
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">算法刷题记录DAY9</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-09-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-09-07</span></span></div></header><div class="post-body">
         <h1 id="解数独">
-          <a href="#解数独" class="heading-link"><i class="fas fa-link"></i></a>解数独</h1>
-      
-<p>
-编写一个程序，通过填充空格来解决数独问题。
-</p>
-<p>
-数独的解法需<strong> 遵循如下规则</strong>：
-</p>
-<ol>
-<li>
-数字 <code>1-9</code> 在每一行只能出现一次。
-</li>
-<li>
-数字 <code>1-9</code> 在每一列只能出现一次。
-</li>
-<li>
-数字 <code>1-9</code> 在每一个以粗实线分隔的 <code>3x3</code> 宫内只能出现一次。（请参考示例图）
-</li>
+          <a href="#解数独" class="heading-link"><i class="fas fa-link"></i></a><a href="#解数独" class="headerlink" title="解数独"></a>解数独</h1>
+      <p>编写一个程序，通过填充空格来解决数独问题。</p>
+
+<p>数独的解法需<strong> 遵循如下规则</strong>：</p>
+
+<ol> 
+ <li>数字&nbsp;<code>1-9</code>&nbsp;在每一行只能出现一次。</li> 
+ <li>数字&nbsp;<code>1-9</code>&nbsp;在每一列只能出现一次。</li> 
+ <li>数字&nbsp;<code>1-9</code>&nbsp;在每一个以粗实线分隔的&nbsp;<code>3x3</code>&nbsp;宫内只能出现一次。（请参考示例图）</li> 
 </ol>
-<p>
-数独部分空格内已填入了数字，空白格用 <code>'.'</code> 表示。
-</p>
-<p>
- 
-</p>
-<div class="top-view__1vxA">
-<div class="original__bRMd">
-<div>
-<p>
-<strong>示例 1：</strong>
-</p>
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714svg.png" style="height:250px; width:250px">
-<pre>
+
+<p>数独部分空格内已填入了数字，空白格用&nbsp;<code>'.'</code>&nbsp;表示。</p>
+
+<p>&nbsp;</p>
+
+<div class="top-view__1vxA"> 
+ <div class="original__bRMd"> 
+  <div> 
+   <p><strong>示例 1：</strong></p> 
+   <img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714svg.png" style="height:250px; width:250px"> 
+   <pre>
 <strong>输入：</strong>board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
 <strong>输出：</strong>[["5","3","4","6","7","8","9","1","2"],["6","7","2","1","9","5","3","4","8"],["1","9","8","3","4","2","5","6","7"],["8","5","9","7","6","1","4","2","3"],["4","2","6","8","5","3","7","9","1"],["7","1","3","9","2","4","8","5","6"],["9","6","1","5","3","7","2","8","4"],["2","8","7","4","1","9","6","3","5"],["3","4","5","2","8","6","1","7","9"]]
 <strong>解释：</strong>输入的数独如上图所示，唯一有效的解决方案如下所示：
 </pre>
+  </div>
+ </div>
 </div>
-</div>
-</div>
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714_solutionsvg.png" style="height:250px; width:250px"></p>
-<p>
- 
-</p>
-<p>
-<strong>提示：</strong>
-</p>
-<ul>
-<li>
-<code>board.length == 9</code>
-</li>
-<li>
-<code>board[i].length == 9</code>
-</li>
-<li>
-<code>board[i][j]</code> 是一位数字或者 <code>'.'</code>
-</li>
-<li>
-题目数据 <strong>保证</strong> 输入数独仅有一个解
-</li>
+<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/12/250px-sudoku-by-l2g-20050714_solutionsvg.png" style="height:250px; width:250px">
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul> 
+ <li><code>board.length == 9</code></li> 
+ <li><code>board[i].length == 9</code></li> 
+ <li><code>board[i][j]</code> 是一位数字或者 <code>'.'</code></li> 
+ <li>题目数据 <strong>保证</strong> 输入数独仅有一个解</li> 
 </ul>
-<div>
-<div>
-Related Topics
-</div>
-<div>
-<li>
-数组
-</li>
-<li>
-哈希表
-</li>
-<li>
-回溯
-</li>
-<li>
-矩阵
-</li>
-</div>
-</div>
-<br>
-<div>
-<li>
-👍 1855
-</li>
-<li>
-👎 0
-</li>
-</div>
+
+<div><div>Related Topics</div><div><li>数组</li><li>哈希表</li><li>回溯</li><li>矩阵</li></div></div><br><div><li>👍 1855</li><li>👎 0</li></div>
+
 <blockquote>
 <p>思路：dfs,扫到结果就结束了，不要继续回溯</p>
 </blockquote>
