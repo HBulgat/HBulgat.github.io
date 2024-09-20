@@ -1,13 +1,14 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="编译过程        在使用gcc编译程序时，编译过程可以简要划分为4个阶段：    预处理   汇编   编译   链接                        预处理       主要处理源文件中的#indef、#include和#define预处理命令；这里主要是把一些include的头文件和一些宏定义，放到源文件中。  输入的是C语言的源文件">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="编译过程         在使用gcc编译程序时，编译过程可以简要划分为4个阶段： 1. 预处理 2. 汇编 3. 编译 4. 链接                       预处理        主要处理源文件中的#indef、#include和#define预处理命令；这里主要是把一些include的头文件和一些宏定义，放到源文件中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C_Cpp学习DAY1">
 <meta property="og:url" content="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/index.html">
 <meta property="og:site_name" content="Bulgat的个人博客">
-<meta property="og:description" content="编译过程        在使用gcc编译程序时，编译过程可以简要划分为4个阶段：    预处理   汇编   编译   链接                        预处理       主要处理源文件中的#indef、#include和#define预处理命令；这里主要是把一些include的头文件和一些宏定义，放到源文件中。  输入的是C语言的源文件">
+<meta property="og:description" content="编译过程         在使用gcc编译程序时，编译过程可以简要划分为4个阶段： 1. 预处理 2. 汇编 3. 编译 4. 链接                       预处理        主要处理源文件中的#indef、#include和#define预处理命令；这里主要是把一些include的头文件和一些宏定义，放到源文件中">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/d022b7cbd85f5f769330c72f3fdd1e78.png">
+<meta property="og:image" content="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/1.webp">
 <meta property="article:published_time" content="2024-09-20T14:11:38.000Z">
-<meta property="article:modified_time" content="2024-09-20T15:25:18.246Z">
+<meta property="article:modified_time" content="2024-09-20T17:31:04.965Z">
 <meta property="article:author" content="Bulgat">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/d022b7cbd85f5f769330c72f3fdd1e78.png"><title>C_Cpp学习DAY1 | Bulgat的个人博客</title><link ref="canonical" href="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
@@ -34,167 +35,274 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">C_Cpp学习DAY1</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-09-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-09-20</span></span></div></header><div class="post-body">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">C_Cpp学习DAY1</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-09-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-09-21</span></span></div></header><div class="post-body">
         <h1 id="编译过程">
-          <a href="#编译过程" class="heading-link"><i class="fas fa-link"></i></a><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h1>
-      <blockquote>
-<p>在使用gcc编译程序时，编译过程可以简要划分为4个阶段：  </p>
-<ol>
-<li>预处理  </li>
-<li>汇编  </li>
-<li>编译  </li>
-<li>链接</li>
-</ol>
+          <a href="#编译过程" class="heading-link"><i class="fas fa-link"></i></a>编译过程</h1>
+      
+<blockquote>
+<p>在使用gcc编译程序时，编译过程可以简要划分为4个阶段：<br>
+1. 预处理<br>
+2. 汇编<br>
+3. 编译<br>
+4. 链接</p>
 </blockquote>
-<p><img src="/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/d022b7cbd85f5f769330c72f3fdd1e78.png" alt></p>
+<p><img src="/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/d022b7cbd85f5f769330c72f3fdd1e78.png"></p>
 
         <h2 id="预处理">
-          <a href="#预处理" class="heading-link"><i class="fas fa-link"></i></a><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2>
-      <p>主要处理源文件中的#indef、#include和#define预处理命令；这里主要是把一些include的头文件和一些宏定义，放到源文件中。</p>
-<ul>
-<li>输入的是C语言的源文件</li>
-<li>输出 ：生成一个中间/预加载文件 *.i（以 .i 结尾的文件）</li>
-<li>这个阶段对应的gcc命令如下：<br><code>gcc –E（预处理） test.c（源文件） -o test.i（将结果生成的文件）</code></li>
-<li>说明：它通过对源文件test.c使用E选项来生成中间文件test.i</li>
-</ul>
+          <a href="#预处理" class="heading-link"><i class="fas fa-link"></i></a>预处理</h2>
+      
+<p>主要处理源文件中的#indef、#include和#define预处理命令；这里主要是把一些include的头文件和一些宏定义，放到源文件中。
+- 输入的是C语言的源文件 - 输出 ：生成一个中间/预加载文件 *.i（以 .i
+结尾的文件） - 这个阶段对应的gcc命令如下：
+<code>gcc –E（预处理） test.c（源文件） -o test.i（将结果生成的文件）</code>
+- 说明：它通过对源文件test.c使用E选项来生成中间文件test.i ### -D
+在编译的时候定义宏的。 -
+-D后面直接跟宏名，相当于定义这个宏，默认这个宏的内容是1，如<code>gcc -DDEBUG</code>。
+-
+-D后面跟<code>key=value</code>表示定义<code>key</code>这个宏，它的内容是<code>value</code>，如<code>gcc -DNAME=Peter</code>。</p>
 
         <h2 id="汇编">
-          <a href="#汇编" class="heading-link"><i class="fas fa-link"></i></a><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h2>
-      <ul>
-<li>输入：中间文件*.i  </li>
-<li>输出：编译后生成汇编编语言文件*.s  </li>
-<li>这个阶段对应的gcc命令如下：<br><code>gcc -S(汇编) test.i -o test.s（汇编编语言文件）</code></li>
-<li>说明：它通过对源文件test.c使用S选项来生成汇编文件test.s</li>
+          <a href="#汇编" class="heading-link"><i class="fas fa-link"></i></a>汇编</h2>
+      
+<ul>
+<li>输入：中间文件*.i<br>
+</li>
+<li>输出：编译后生成汇编编语言文件*.s<br>
+</li>
+<li>这个阶段对应的gcc命令如下：<br>
+<code>gcc -S(汇编) test.i -o test.s（汇编编语言文件）</code></li>
+<li>说明：它通过对源文件test.c使用S选项来生成汇编文件test.s ### 反汇编
+<em><code>objdump</code>命令，反汇编</em><br>
+<code>objdump</code>命令是Linux下的反汇编目标文件或者可执行文件的命令，它以一种可阅读的格式让你更多地了解二进制文件可能带有的附加信息。<br>
+</li>
+<li>反汇编应用程序，<code>objdump -d main.o</code><br>
+</li>
+<li>显示文件头信息，<code>objdump -f main.o</code><br>
+</li>
+<li>显示制定section段信息(comment段)，<code>objdump -s -j .comment main.o</code></li>
 </ul>
 
         <h2 id="编译">
-          <a href="#编译" class="heading-link"><i class="fas fa-link"></i></a><a href="#编译" class="headerlink" title="编译"></a>编译</h2>
-      <ul>
-<li>输入文件：汇编文件*.s  </li>
-<li>输出文件：二进制机器代码*.o  </li>
-<li>这个阶段对应的gcc命令如下：<br><code>gcc -c（编译） test.s -o test.o</code></li>
+          <a href="#编译" class="heading-link"><i class="fas fa-link"></i></a>编译</h2>
+      
+<ul>
+<li>输入文件：汇编文件*.s<br>
+</li>
+<li>输出文件：二进制机器代码*.o<br>
+</li>
+<li>这个阶段对应的gcc命令如下：<br>
+<code>gcc -c（编译） test.s -o test.o</code></li>
 </ul>
 <blockquote>
 
-        <h3 id="gcc-c命令">
-          <a href="#gcc-c命令" class="heading-link"><i class="fas fa-link"></i></a><a href="#gcc-c命令" class="headerlink" title="gcc -c命令"></a><em><code>gcc -c</code>命令</em></h3>
-      <p>在功能上，预处理、编译、汇编是3个不同的阶段<br>但gcc在实际操作时可以把这3个步骤合并为一个步骤来执行,即使用 -c选项  </p>
-<ul>
-<li>输入文件：源码*.c文件  </li>
-<li>输出文件：二进制机器代码*.o  </li>
-<li>这个阶段对应的gcc命令如下：<br>  <code>gcc –c test.c -o test.o</code>  <ul>
-<li>-o指定了output_filename  </li>
-</ul>
-</li>
-<li>或 ：<code>gcc -c test.c</code>  <ul>
-<li>省略-o output_filename  </li>
-<li>默认输出为test.o  </li>
-<li>与源文件同名，后缀为.o  </li>
-</ul>
-</li>
-</ul>
+        <h3 id="gcc--c命令">
+          <a href="#gcc--c命令" class="heading-link"><i class="fas fa-link"></i></a><em><code>gcc -c</code>命令</em></h3>
+      
+<p>在功能上，预处理、编译、汇编是3个不同的阶段<br>
+但gcc在实际操作时可以把这3个步骤合并为一个步骤来执行,即使用 -c选项<br>
+- 输入文件：源码<em>.c文件<br>
+- 输出文件：二进制机器代码</em>.o<br>
+- 这个阶段对应的gcc命令如下：<br>
+<code>gcc –c test.c -o test.o</code><br>
+- -o指定了output_filename<br>
+- 或 ：<code>gcc -c test.c</code><br>
+- 省略-o output_filename<br>
+- 默认输出为test.o<br>
+- 与源文件同名，后缀为.o</p>
 </blockquote>
 
         <h2 id="链接">
-          <a href="#链接" class="heading-link"><i class="fas fa-link"></i></a><a href="#链接" class="headerlink" title="链接"></a>链接</h2>
-      <ul>
-<li>输入文件：二进制机器码*.o文件  </li>
-<li>输出文件：与其它的机器代码和库文件汇集成一个可执行的二进制代码文件（无后缀）  </li>
-<li>这个阶段对应的gcc命令如下：<br><code>gcc （没有选项符号） test.o example.o -o test</code>  <blockquote>
-<p><em>可用选项：</em><br>-L 指定库路径<br>-l （小写的L）指定库名称<br>-I （大写的i）指定头文件所在路径<br>-i 指定头文件名称  </p>
-</blockquote>
+          <a href="#链接" class="heading-link"><i class="fas fa-link"></i></a>链接</h2>
+      
+<ul>
+<li>输入文件：二进制机器码*.o文件<br>
 </li>
+<li>输出文件：与其它的机器代码和库文件汇集成一个可执行的二进制代码文件（无后缀）<br>
+</li>
+<li>这个阶段对应的gcc命令如下：<br>
+<code>gcc （没有选项符号） test.o example.o -o test</code><br>
+&gt; <em>可用选项：</em><br>
+&gt; -L 指定库路径<br>
+&gt; -l （小写的L）指定库名称<br>
+&gt; -I （大写的i）指定头文件所在路径<br>
+&gt; -i 指定头文件名称</li>
 </ul>
-<div class="table-container">
 <div class="table-container"><table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 18%">
+<col style="width: 67%">
+</colgroup>
 <thead>
 <tr>
-<th style="text-align:center">选项</th>
-<th style="text-align:center">用法</th>
-<th style="text-align:center">解释</th>
+<th style="text-align: center;">选项</th>
+<th style="text-align: center;">用法</th>
+<th style="text-align: center;">解释</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">-l（大写的i）</td>
-<td style="text-align:center">-Idirname(没有间隔)</td>
-<td style="text-align:center">将名为dirname的目录加入到程序头文件目录列表中，它是在预处理阶段使用的选项，I是指Include</td>
+<td style="text-align: center;">-l（大写的i）</td>
+<td style="text-align: center;">-Idirname(没有间隔)</td>
+<td style="text-align: center;">将名为dirname的目录加入到程序头文件目录列表中，它是在预处理阶段使用的选项，I是指Include</td>
 </tr>
 <tr>
-<td style="text-align:center">-L</td>
-<td style="text-align:center">-Ldirname</td>
-<td style="text-align:center">将名为dirname的目录加入到程序的库文件搜索目录列表中，它是在链接过程中使用的参数， L是指Link</td>
+<td style="text-align: center;">-L</td>
+<td style="text-align: center;">-Ldirname</td>
+<td style="text-align: center;">将名为dirname的目录加入到程序的库文件搜索目录列表中，它是在链接过程中使用的参数，
+L是指Link</td>
 </tr>
 <tr>
-<td style="text-align:center">-l （小写的L）</td>
-<td style="text-align:center">-lname</td>
-<td style="text-align:center">指示编译器，在链接时，装载名为libname.a的函数库，该函数库位于系统预定义的目录或者由-L选项指定的目录下</td>
+<td style="text-align: center;">-l （小写的L）</td>
+<td style="text-align: center;">-lname</td>
+<td style="text-align: center;">指示编译器，在链接时，装载名为libname.a的函数库，该函数库位于系统预定义的目录或者由-L选项指定的目录下</td>
 </tr>
 </tbody>
 </table></div>
-</div>
 
         <h2 id="简化过程">
-          <a href="#简化过程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简化过程" class="headerlink" title="简化过程"></a>简化过程</h2>
-      <p>上述过程可以简化为：<br><code>gcc test.c （源文件） -o test（可执行文件）</code><br>注意：与链接的语句差别主要在指令中输入文件的后缀  </p>
+          <a href="#简化过程" class="heading-link"><i class="fas fa-link"></i></a>简化过程</h2>
+      
+<p>上述过程可以简化为：<br>
+<code>gcc test.c （源文件） -o test（可执行文件）</code><br>
+注意：与链接的语句差别主要在指令中输入文件的后缀</p>
 <blockquote>
-<p>注：  </p>
-<ol>
-<li>库是头文件的实现！</li>
-<li>在编译过程中可以被装载/拷贝的库为静态库（.a后缀）</li>
-</ol>
+<p>注：<br>
+1. 库是头文件的实现！<br>
+2. 在编译过程中可以被装载/拷贝的库为静态库（.a后缀）</p>
 </blockquote>
 
         <h2 id="一些常用选项">
-          <a href="#一些常用选项" class="heading-link"><i class="fas fa-link"></i></a><a href="#一些常用选项" class="headerlink" title="一些常用选项"></a>一些常用选项</h2>
-      <div class="table-container">
+          <a href="#一些常用选项" class="heading-link"><i class="fas fa-link"></i></a>一些常用选项</h2>
+      
 <div class="table-container"><table>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
 <thead>
 <tr>
-<th style="text-align:center">选项</th>
-<th style="text-align:center">功能</th>
+<th style="text-align: center;">选项</th>
+<th style="text-align: center;">功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">-g</td>
-<td style="text-align:center">产生调试器gdb所必须的符号信息，要对源代码进行调试，就必须在编译程序时加入这个选项</td>
+<td style="text-align: center;">-g</td>
+<td style="text-align: center;">产生调试器gdb所必须的符号信息，要对源代码进行调试，就必须在编译程序时加入这个选项</td>
 </tr>
 <tr>
-<td style="text-align:center">-O</td>
-<td style="text-align:center">对程序进行优化编译、链接，采用这个选项，整个源代码会在编译、链接过程中进行优化处理，这样产生的可执行文件的执行效率较高，但是，编译、链接的速度就相应地要慢一些。</td>
+<td style="text-align: center;">-O</td>
+<td style="text-align: center;">对程序进行优化编译、链接，采用这个选项，整个源代码会在编译、链接过程中进行优化处理，这样产生的可执行文件的执行效率较高，但是，编译、链接的速度就相应地要慢一些。</td>
 </tr>
 <tr>
-<td style="text-align:center">-O2</td>
-<td style="text-align:center">比-O更好的优化编译、链接</td>
+<td style="text-align: center;">-O2</td>
+<td style="text-align: center;">比-O更好的优化编译、链接</td>
 </tr>
 <tr>
-<td style="text-align:center">-Wall</td>
-<td style="text-align:center">输出所有警告信息</td>
+<td style="text-align: center;">-Wall</td>
+<td style="text-align: center;">输出所有警告信息</td>
 </tr>
 <tr>
-<td style="text-align:center">-w</td>
-<td style="text-align:center">关闭所有警告信息</td>
+<td style="text-align: center;">-w</td>
+<td style="text-align: center;">关闭所有警告信息</td>
+</tr>
+<tr>
+<td style="text-align: center;">-save-temps</td>
+<td style="text-align: center;">输出中间代码</td>
+</tr>
+<tr>
+<td style="text-align: center;">-std</td>
+<td style="text-align: center;">指定编译版本</td>
+</tr>
+<tr>
+<td style="text-align: center;">@</td>
+<td style="text-align: center;">指定文件制定编译选项</td>
 </tr>
 </tbody>
 </table></div>
-</div>
+<p><em>更多的命令应该不太常用（？）</em></p>
+
+        <h1 id="makefile">
+          <a href="#makefile" class="heading-link"><i class="fas fa-link"></i></a>Makefile</h1>
+      
+<p>软件项目中，模块之间的依赖关系一般比较复杂，想要通过一条命令gcc命令完成项目的编译非常困难，并且不利于扩展和维护，这个时候就需要使用Makefile了。</p>
+
+        <h2 id="语法">
+          <a href="#语法" class="heading-link"><i class="fas fa-link"></i></a>语法</h2>
+      
+<figure class="highlight makefile"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target... : prerequisites ...</span><br><span class="line">          command</span><br><span class="line">          ......</span><br></pre></td></tr></table></div></figure>
+<p>解析：</p>
+<ul>
+<li>target：可以是一个object
+file（目标文件），也可以是一个执行文件，还可以是一个标签（label）。<br>
+</li>
+<li>prerequisites：生成该target所依赖的文件，可以有多个依赖<br>
+</li>
+<li>command：该target要执行的命令（任意的shell命令）<br>
+举例： <img src="/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/1.webp"> <figure class="highlight makefile"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test依赖于libtest.a main.o</span></span><br><span class="line"><span class="section">test: libtest.a main.o</span></span><br><span class="line">	gcc main.o -ltest -L. -o test</span><br><span class="line"><span class="comment"># main.o依赖于main.c</span></span><br><span class="line"><span class="section">main.o:main.c</span></span><br><span class="line">	gcc main.c -c -o main.o</span><br><span class="line"><span class="comment"># libtest.a依赖于test1.o test2.o</span></span><br><span class="line"><span class="section">libtest.a: test1.o test2.o</span></span><br><span class="line">	ar -r libtest.a test1.o test2.o</span><br><span class="line"><span class="comment"># test1.o依赖于test1.c</span></span><br><span class="line"><span class="section">test1.o:test1.c</span></span><br><span class="line">	gcc test1.c -c -o test1.o</span><br><span class="line"><span class="comment"># test2.o依赖于test2.c</span></span><br><span class="line"><span class="section">test2.o:test2.c</span></span><br><span class="line">	gcc test2.c -c -o test2.o</span><br></pre></td></tr></table></div></figure></li>
+</ul>
+<blockquote>
+<p>解释：<br>
+当要生成目标test时，make工具会从test开始依次寻找依赖关系，由源文件逐步生成目标test。<br>
+test依赖于libtest.a和main.o，或者说libtest.a和main.o是生成test的前置条件（
+prerequisites），<br>
+如果libtest.a和main.o存在，那么将直接使用命令"gcc main.o -ltest -L. -o
+test"生成test；<br>
+如果libtest.a和main.o不存在，再向下遍历，寻找libtest.a和main.o的前置条件，去生成libtest.a和main.o，<br>
+就这样一直寻找到可以满足的前置条件，逐步生成目标test。<br>
+如果找到最底层，依然无法满足生成条件，那么就会报错“make：***
+没有明确目标并且找不到 makefile。停止”</p>
+</blockquote>
+<p><em>在检查依赖关系时，同时会检查目标与源文件的时间戳，当源文件时间戳更新时，make会更新依赖它的链路上所有目录。</em></p>
+
+        <h3 id="变量与目标">
+          <a href="#变量与目标" class="heading-link"><i class="fas fa-link"></i></a>变量与目标</h3>
+      
+<p>上面的Makefile中，所有的依赖关系中直接使用文件名称，当新增加文件或者模块时，需要手动去添加新的依赖关系，那么这就比较麻烦，不利于扩展，因此可以使用变量，自动完成新依赖关系添加。<br>
+观察上面的依赖关系，可以发现所有的.o中间文件都依赖于一个.c源代码文件。那么这里就可以用变量表达.o中间文件和.c源代码文件，并指定它们之间的依赖关系。Makefile中的变量类型基本上就可以直接理解为字符串类型。</p>
+<figure class="highlight makefile"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SRC = test1.c test2.c main.c</span><br><span class="line">OBJ = test1.o test2.o main.o</span><br><span class="line"></span><br><span class="line"><span class="section">$&#123;OBJ&#125;:$&#123;SRC&#125;</span></span><br><span class="line">	gcc -c $&#123;SRC&#125;</span><br></pre></td></tr></table></div></figure>
+<p>更为方便的办法: <figure class="highlight makefile"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SRC = <span class="variable">$(<span class="built_in">wildcard</span> *.c)</span></span><br><span class="line">OBJ = <span class="variable">$(<span class="built_in">patsubst</span> %.c,%.o,$&#123;SRC&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="section">$&#123;OBJ&#125;:$&#123;SRC&#125;</span></span><br><span class="line">	gcc -c $&#123;SRC&#125;</span><br></pre></td></tr></table></div></figure>
+这里使用了Makefile中的函数，使用<code>$(&lt;function&gt; &lt;arguments&gt;)</code>的形式可以调用函数。</p>
+<p>用模式匹配的形式来描述依赖关系: <figure class="highlight makefile"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SRC = <span class="variable">$(<span class="built_in">wildcard</span> *.c)</span></span><br><span class="line">OBJ = <span class="variable">$(<span class="built_in">patsubst</span> %.c,%.o,$&#123;SRC&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="section">$&#123;OBJ&#125;:%.o:%.c</span></span><br><span class="line">	gcc -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br></pre></td></tr></table></div></figure>
+<code>$&#123;OBJ&#125;:%.o:%.c</code>表示OBJ变量中符合"%.o"模式的文件都依赖于"%.c"文件，例如OBJ中的test1.o依赖于test1.c，%在这时就匹配"test1"。另外，这里的命令使用了自动化变量:<br>
+| 自动化变量 | 作用 |<br>
+|:-------:|:-----------------------------------:|<br>
+| <span class="math inline">\(@ |
+规则的目标文件名(依赖关系中冒号:左边的文件，如果a: b
+c，那么\)</span><span class="citation" data-cites="指a">@指a</span>)
+|<br>
+| $% | 当目标文件是一个静态库文件时，代表静态库的一个成员名。 |<br>
+| <span class="math inline">\(&lt; | 被依赖文件的第一项(如果a: b
+c，那么\)</span>&lt;指b) |<br>
+| $? | 所有比目标文件更新的依赖文件列表，空格分隔 |<br>
+| <span class="math inline">\(^ | 所有依赖文件列表，使用空格分隔(如果a:
+b c c，那么\)</span>^指b c)，不包含重复文件 |<br>
+| <span class="math inline">\(+ | 所有依赖文件列表，使用空格分隔(如果a:
+b c c，那么\)</span>+指b c c)，包含重复文件 |<br>
+| $* | 在模式规则和静态模式规则中的"%"所匹配的内容 |</p>
 
         <h1 id="参考资料">
-          <a href="#参考资料" class="heading-link"><i class="fas fa-link"></i></a><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1>
-      <ul>
-<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47826078/article/details/120474122">CSDN</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>  </li>
+          <a href="#参考资料" class="heading-link"><i class="fas fa-link"></i></a>参考资料</h1>
+      
+<ul>
+<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47826078/article/details/120474122">CSDN</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>
+</li>
 <li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/430029724#:~:text=%E6%9C%AC%E6%96%87%E5%B0%86%E8%AE%B2%E8%BF%B0%E5%A6%82%E4%BD%95%E4%BB%8E%E9%9B%B6%E5%BC%80">知乎</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://gitcode.csdn.net/662b4a23c46af926427792b9.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjYwOTgzNywiZXhwIjoxNzI3NDU0NDMzLCJpYXQiOjE3MjY4NDk2MzMsInVzZXJuYW1lIjoicXFfNzA3NTA1MjIifQ.QcN-Z_VFw6c6jxclvsfaCAlmysbL72GS_QP41sjp0Ic&amp;spm=1001.2101.3001.6650.4&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7Ebaidujs_baidulandingword%7Eactivity-4-121261526-blog-120474122.235%5Ev43%5Epc_blog_bottom_relevance_base2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7Ebaidujs_baidulandingword%7Eactivity-4-121261526-blog-120474122.235%5Ev43%5Epc_blog_bottom_relevance_base2&amp;utm_relevant_index=9">GitCode</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
 </ul>
 </div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com">Bulgat</a></span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2024/09/06/%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/"><span class="paginator-prev__text">中缀表达式</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">
           编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">
           预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96"><span class="toc-number">1.2.</span> <span class="toc-text">
           汇编</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">1.3.</span> <span class="toc-text">
-          编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gcc-c%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gcc--c%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.1.</span> <span class="toc-text">
           gcc -c命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">1.4.</span> <span class="toc-text">
           链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.</span> <span class="toc-text">
           简化过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9"><span class="toc-number">1.6.</span> <span class="toc-text">
-          一些常用选项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">2.</span> <span class="toc-text">
+          一些常用选项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#makefile"><span class="toc-number">2.</span> <span class="toc-text">
+          Makefile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">
+          语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E7%9B%AE%E6%A0%87"><span class="toc-number">2.1.1.</span> <span class="toc-text">
+          变量与目标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">3.</span> <span class="toc-text">
           参考资料</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">19</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.json';

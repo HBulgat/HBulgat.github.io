@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="三个符号       $O(n)$:上界。相当于”&lt;&#x3D;”  $o(n)$:非紧的上界。相当于”&lt;”  $Ω(n)$:下界。相当于”&gt;&#x3D;”  $w(n)$:非紧的下界。 相当于”&gt;”  $θ(n)$:紧确界。相当于”&#x3D;”  注解：渐近非负的意思是“当n趋于无穷大时，f(n)和g(n)都非负”。  如果$f(n)&#x3D;Θ(g(n))$,则$f">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.jpg?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.jpg?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="三个符号        \(O(n)\):上界。相当于&quot;&lt;&#x3D;”  \(o(n)\):非紧的上界。相当于&quot;&lt;”  \(Ω(n)\):下界。相当于&quot;&gt;&#x3D;”  \(w(n)\):非紧的下界。 相当于&quot;&gt;”  \(θ(n)\):紧确界。相当于&quot;&#x3D;”  注解：渐近非负的意思是“当n趋于无穷大时，f(n)和g(n)都非负”">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法渐进分析">
 <meta property="og:url" content="http://example.com/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Bulgat的个人博客">
-<meta property="og:description" content="三个符号       $O(n)$:上界。相当于”&lt;&#x3D;”  $o(n)$:非紧的上界。相当于”&lt;”  $Ω(n)$:下界。相当于”&gt;&#x3D;”  $w(n)$:非紧的下界。 相当于”&gt;”  $θ(n)$:紧确界。相当于”&#x3D;”  注解：渐近非负的意思是“当n趋于无穷大时，f(n)和g(n)都非负”。  如果$f(n)&#x3D;Θ(g(n))$,则$f">
+<meta property="og:description" content="三个符号        \(O(n)\):上界。相当于&quot;&lt;&#x3D;”  \(o(n)\):非紧的上界。相当于&quot;&lt;”  \(Ω(n)\):下界。相当于&quot;&gt;&#x3D;”  \(w(n)\):非紧的下界。 相当于&quot;&gt;”  \(θ(n)\):紧确界。相当于&quot;&#x3D;”  注解：渐近非负的意思是“当n趋于无穷大时，f(n)和g(n)都非负”">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled.png">
 <meta property="og:image" content="http://example.com/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%201.png">
@@ -47,61 +47,66 @@ var CONFIG = {
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">文章</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">算法渐进分析</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发布于</span><span class="post-meta-item__value">2024-08-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2024-08-04</span></span></div></header><div class="post-body">
         <h1 id="三个符号">
-          <a href="#三个符号" class="heading-link"><i class="fas fa-link"></i></a><a href="#三个符号" class="headerlink" title="三个符号"></a>三个符号</h1>
-      <p>$O(n)$:上界。相当于”&lt;=”</p>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled.png" alt></p>
-<p>$o(n)$:非紧的上界。相当于”&lt;”</p>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%201.png" alt></p>
-<p>$Ω(n)$:下界。相当于”&gt;=”</p>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%202.png" alt></p>
-<p>$w(n)$:非紧的下界。 相当于”&gt;”</p>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%203.png" alt></p>
-<p>$θ(n)$:紧确界。相当于”=”</p>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%204.png" alt></p>
+          <a href="#三个符号" class="heading-link"><i class="fas fa-link"></i></a>三个符号</h1>
+      
+<p><span class="math inline">\(O(n)\)</span>:上界。相当于"&lt;=”</p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled.png"></p>
+<p><span class="math inline">\(o(n)\)</span>:非紧的上界。相当于"&lt;”</p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%201.png"></p>
+<p><span class="math inline">\(Ω(n)\)</span>:下界。相当于"&gt;=”</p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%202.png"></p>
+<p><span class="math inline">\(w(n)\)</span>:非紧的下界。
+相当于"&gt;”</p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%203.png"></p>
+<p><span class="math inline">\(θ(n)\)</span>:紧确界。相当于"=”</p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%204.png"></p>
 <p>注解：渐近非负的意思是“当n趋于无穷大时，f(n)和g(n)都非负”。</p>
 <ul>
-<li>如果$f(n)=Θ(g(n))$,则$f(n)=O(g(n))$且$f(n)=Ω(g(n))$。</li>
-<li>如果$f(n)=o(g(n))$,则$f(n)=O(g(n))$。</li>
-<li>如果$f(n)=ω(g(n))$，则$f(n)=Ω(g(n))$。</li>
+<li>如果<span class="math inline">\(f(n)=Θ(g(n))\)</span>,则<span class="math inline">\(f(n)=O(g(n))\)</span>且<span class="math inline">\(f(n)=Ω(g(n))\)</span>。</li>
+<li>如果<span class="math inline">\(f(n)=o(g(n))\)</span>,则<span class="math inline">\(f(n)=O(g(n))\)</span>。</li>
+<li>如果<span class="math inline">\(f(n)=ω(g(n))\)</span>，则<span class="math inline">\(f(n)=Ω(g(n))\)</span>。</li>
 </ul>
 <p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://blog.csdn.net/gaoxiangnumber1/article/details/45066841">参考</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
         <h2 id="用集合描述">
-          <a href="#用集合描述" class="heading-link"><i class="fas fa-link"></i></a><a href="#用集合描述" class="headerlink" title="用集合描述"></a>用集合描述</h2>
-      <p>$f(n)∈ O(g(n))$</p>
+          <a href="#用集合描述" class="heading-link"><i class="fas fa-link"></i></a>用集合描述</h2>
+      
+<p><span class="math inline">\(f(n)∈ O(g(n))\)</span></p>
 <p>举例：</p>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%205.png" alt></p>
-<p>如果$f(n)=O(g(n))$,则要么是$f(n)=o(g(n))$，要么是$f(n)=Θ(g(n))$。</p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%205.png"></p>
+<p>如果<span class="math inline">\(f(n)=O(g(n))\)</span>,则要么是<span class="math inline">\(f(n)=o(g(n))\)</span>，要么是<span class="math inline">\(f(n)=Θ(g(n))\)</span>。</p>
 
-        <h2 id="性质（没啥用）">
-          <a href="#性质（没啥用）" class="heading-link"><i class="fas fa-link"></i></a><a href="#性质（没啥用）" class="headerlink" title="性质（没啥用）"></a>性质（没啥用）</h2>
-      <ol>
+        <h2 id="性质没啥用">
+          <a href="#性质没啥用" class="heading-link"><i class="fas fa-link"></i></a>性质（没啥用）</h2>
+      
+<ol type="1">
 <li>传递性：一条链上的都是同一个符号</li>
 </ol>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%206.png" alt></p>
-<ol>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%206.png"></p>
+<ol start="2" type="1">
 <li>自反性：带等号的</li>
 </ol>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%207.png" alt></p>
-<ol>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%207.png"></p>
+<ol start="3" type="1">
 <li>对称性</li>
 </ol>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%208.png" alt></p>
-<ol>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%208.png"></p>
+<ol start="4" type="1">
 <li>单调性</li>
 </ol>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%209.png" alt></p>
-<ol>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%209.png"></p>
+<ol start="5" type="1">
 <li>多部份决策：通俗点来说来说就是当算法由两个连续执行部分组成时，该算法的整体效率由具有较大增长次数的那部分所决定，即效率较差的部分决定。</li>
 </ol>
-<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%2010.png" alt></p>
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%2010.png"></p>
 
         <h2 id="例题">
-          <a href="#例题" class="heading-link"><i class="fas fa-link"></i></a><a href="#例题" class="headerlink" title="例题"></a>例题</h2>
-      <p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%2011.png" alt></p>
-</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com">Bulgat</a></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2024/08/04/%E6%A0%91/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">树</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2024/08/03/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E4%BD%9C%E4%B8%9A/"><span class="paginator-prev__text">网络安全大作业</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.</span> <span class="toc-text">
+          <a href="#例题" class="heading-link"><i class="fas fa-link"></i></a>例题</h2>
+      
+<p><img src="/2024/08/04/%E7%AE%97%E6%B3%95%E6%B8%90%E8%BF%9B%E5%88%86%E6%9E%90/Untitled%2011.png"></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://example.com">Bulgat</a></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2024/08/04/%E6%A0%91/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">树</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2024/08/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"><span class="paginator-prev__text">计算机网络课程设计</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E7%AC%A6%E5%8F%B7"><span class="toc-number">1.</span> <span class="toc-text">
           三个符号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E9%9B%86%E5%90%88%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">
-          用集合描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8%EF%BC%88%E6%B2%A1%E5%95%A5%E7%94%A8%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">
+          用集合描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8%E6%B2%A1%E5%95%A5%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">
           性质（没啥用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">
           例题</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello! Bulgat</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">19</div><div class="sidebar-ov-state-item__name">分类</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2024</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Bulgat</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="120" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="99" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
