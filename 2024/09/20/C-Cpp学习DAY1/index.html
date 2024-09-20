@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/d022b7cbd85f5f769330c72f3fdd1e78.png">
 <meta property="article:published_time" content="2024-09-20T14:11:38.000Z">
-<meta property="article:modified_time" content="2024-09-20T15:20:39.187Z">
+<meta property="article:modified_time" content="2024-09-20T15:23:02.754Z">
 <meta property="article:author" content="Bulgat">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/d022b7cbd85f5f769330c72f3fdd1e78.png"><title>C_Cpp学习DAY1 | Bulgat的个人博客</title><link ref="canonical" href="http://example.com/2024/09/20/C-Cpp%E5%AD%A6%E4%B9%A0DAY1/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
@@ -102,10 +102,37 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.3.0"></he
 <li>输出文件：与其它的机器代码和库文件汇集成一个可执行的二进制代码文件（无后缀）  </li>
 <li>这个阶段对应的gcc命令如下：<br><code>gcc （没有选项符号） test.o example.o -o test</code>  <blockquote>
 <p><em>可用选项：</em><br>-L 指定库路径<br>-l （小写的L）指定库名称<br>-I （大写的i）指定头文件所在路径<br>-i 指定头文件名称  </p>
-<p>| 选项 | 用法 | 解释 |<br>|———-|———-|———-|<br>| -l（大写的i） | -Idirname(没有间隔) | 将名为dirname的目录加入到程序头文件目录列表中，它是在预处理阶段使用的选项，I是指Include |<br>| -L | -Ldirname | 将名为dirname的目录加入到程序的库文件搜索目录列表中，它是在链接过程中使用的参数， L是指Link |<br>| -l （小写的L） | -lname | 指示编译器，在链接时，装载名为libname.a的函数库，该函数库位于系统预定义的目录或者由-L选项指定的目录下 |</p>
 </blockquote>
 </li>
 </ul>
+<div class="table-container">
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-l（大写的i）</td>
+<td>-Idirname(没有间隔)</td>
+<td>将名为dirname的目录加入到程序头文件目录列表中，它是在预处理阶段使用的选项，I是指Include</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>-Ldirname</td>
+<td>将名为dirname的目录加入到程序的库文件搜索目录列表中，它是在链接过程中使用的参数， L是指Link</td>
+</tr>
+<tr>
+<td>-l （小写的L）</td>
+<td>-lname</td>
+<td>指示编译器，在链接时，装载名为libname.a的函数库，该函数库位于系统预定义的目录或者由-L选项指定的目录下</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 
         <h2 id="简化过程">
           <a href="#简化过程" class="heading-link"><i class="fas fa-link"></i></a><a href="#简化过程" class="headerlink" title="简化过程"></a>简化过程</h2>
